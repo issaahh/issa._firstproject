@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOUSE-RENT MANAGEMENT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <body style="background-image: url('https://propscout.co.ke/storage/properties/files/block-of-flat-for-sale-in-parklands-yntzw.jpeg'); background-size: cover; background-position: stretch; height:909px;background-repeat: no-repeat;">
+  <!-- Your content here -->
+</body>
+
+
+    <div class="container">
+        <h1>Rent Management</h1>
+        
+        <!-- Role Selection -->
+        <div id="roleSelection">
+            <button onclick="selectRole('landlord ')">landlord </button>
+            <button onclick="selectRole('tenant')">Tenant</button>
+        </div>
+
+        <!-- Login -->
+        <div id="loginSection" style="display: none;">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="handleLogin()">Login</button>
+        </div>
+
+        <!-- Main Management Section -->
+        <div id="managementSection" style="display: none;">
+            
+            <!-- Admin Property Selector -->
+            <div id="adminPropertySelect" style="display: none;">
+                <h3>Select Property:</h3>
+                <div id="propertyList"></div>
+                <input type="text" id="newPropName" placeholder="New Property Name">
+                <button onclick="addProperty()">Add Property</button>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div id="adminDashboard" style="display: none;">
+                <h3 id="propTitle"></h3>
+                <div class="card">
+                    <label>Single: <input type="number" id="p_single" placeholder="Price"> <input type="number" id="c_single" placeholder="Count"></label>
+                    <label>One-bed: <input type="number" id="p_one" placeholder="Price"> <input type="number" id="c_one" placeholder="Count"></label>
+                    <label>Two-bed: <input type="number" id="p_two" placeholder="Price"> <input type="number" id="c_two" placeholder="Count"></label>
+                    <button onclick="saveInventory()">Save Inventory</button>
+                </div>
+                
+                <div id="tenantManager" class="card">
+                    <h4>Add New Tenant</h4>
+                    <input type="text" id="tName" placeholder="Name">
+                    <input type="text" id="tRoom" placeholder="Room">
+                    <input type="text" id="tPhone" placeholder="Phone">
+                    <select id="tType"><option value="single">Single</option><option value="one">One-bed</option><option value="two">Two-bed</option></select>
+                    <button onclick="addTenant()">Add Tenant</button>
+                </div>
+                <button onclick="goToManagement()">Go to Full Management & Payments</button>
+            </div>
+
+            <!-- Clean Management Portal -->
+            <div id="managementPortal" class="card" style="display:none;">
+                <h3>Tenant Payment Portal</h3>
+                <table>
+                    <thead><tr><th>Name</th><th>Room</th><th>Phone</th><th>Bal</th><th>Action</th></tr></thead>
+                    <tbody id="tenantTableBody"></tbody>
+                </table>
+                <button onclick="backToDashboard()">Back to Dashboard</button>
+            </div>
+
+            <button onclick="location.reload()">Logout</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
